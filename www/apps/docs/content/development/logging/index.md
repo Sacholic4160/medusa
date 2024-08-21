@@ -30,7 +30,7 @@ export default async (
 ): Promise<void> => {
   const logger = container.resolve<Logger>("logger")
 
-  logger.info("Starting loader...")
+  logger.info("Starting logger...")
 
   const productService = container.resolve<ProductService>(
     "productService"
@@ -40,7 +40,7 @@ export default async (
     await productService.count()
   }`)
   
-  logger.info("Ending loader")
+  logger.info("Ending logger")
 }
 ```
 
@@ -99,7 +99,7 @@ export default async (
 ): Promise<void> => {
   const logger = container.resolve<Logger>("logger")
 
-  const activityId = logger.activity("Starting loader...")
+  const activityId = logger.activity("Starting logger...")
 
   const productService = container.resolve<ProductService>(
     "productService"
@@ -113,7 +113,7 @@ export default async (
     logger.failure(activityId, `An error occurred: ${e}`)
   }
   
-  logger.success(activityId, "Ending loader")
+  logger.success(activityId, "Ending logger")
 }
 ```
 
